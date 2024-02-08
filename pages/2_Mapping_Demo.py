@@ -73,12 +73,11 @@ def mapping_demo():
             ),
         }
         st.sidebar.markdown("### Map Layers")
-        selected_layers = [
+        if selected_layers := [
             layer
             for layer_name, layer in ALL_LAYERS.items()
             if st.sidebar.checkbox(layer_name, True)
-        ]
-        if selected_layers:
+        ]:
             st.pydeck_chart(
                 pdk.Deck(
                     map_style=None,
