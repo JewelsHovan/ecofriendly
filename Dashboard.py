@@ -11,14 +11,14 @@ def load_data():
 
 # Main app function
 def run():
-    st.set_page_config(page_title="Eco Emissions Dashboard", page_icon="🌿")
+    st.set_page_config(page_title="Eco Emissions Dashboard", page_icon="🌿", layout="wide")
     st.title("Eco Emissions Dashboard 🌿")
 
     # Load the data
     data = load_data()
     all_data = data.copy()
 
-    # Sidebar - User Input Features
+    # Sidebar - User Input Features with descriptive labels
     st.sidebar.header('User Input Features')
     default_company_name = 'ABBVIE LTD.'
     company_name = st.sidebar.text_input('Company Name', value=default_company_name)
