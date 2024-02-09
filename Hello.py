@@ -14,6 +14,17 @@ def run():
     st.set_page_config(page_title="Eco Emissions Dashboard", page_icon="🌿", layout="wide")
     st.title("Eco Emissions Dashboard 🌿")
 
+    st.markdown("""
+    <style>
+    div[data-testid="metric-container"] {
+        border: 2px solid #000000;  /* Black border */
+        border-radius: 10px;        /* Rounded corners */
+        padding: 10px;              /* Some padding */
+        margin-bottom: 10px;        /* Space between cards */
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
     # Load the data
     data = load_data()
     all_data = data.copy()
