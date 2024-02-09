@@ -4,6 +4,7 @@ from utils import load_data, filter_data, pivot_data, calculate_sector_data, cal
 
 def run():
     st.set_page_config(page_title="Eco Emissions Company Dashboard", page_icon="🌿", layout="wide")
+    st.sidebar.title("Input and Sliders")
     st.title("Eco Emissions Company Dashboard 🌿")
 
     st.markdown("""
