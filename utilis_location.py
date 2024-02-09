@@ -51,11 +51,22 @@ def plot_emissions_by_sector(df):
                       title='Emissions Breakdown by Sector')
     st.plotly_chart(fig, use_container_width=True)
 
-# Plot dynamic scatter comparing CO2 and N2O emissions (no change needed)
+# Plot dynamic scatter comparing CO2 and N2O emissions
 def plot_dynamic_scatter(df):
     fig = px.scatter(df, x='CO2_emissions', y='N2O_emissions',
                      color='Sector', hover_data=['Facility.Name', 'City', 'State'],
-                     title='CO2 vs. N2O Emissions by Sector',
-                     labels={'CO2_emissions': 'CO2 Emissions', 'N2O_emissions': 'Nitrous Oxide Emissions'})
-    fig.update_layout(coloraxis_colorbar=dict(title="Sector"))
-    st.plotly_chart(fig, use_container_width=True)
+                     title='CO2 vs. N2O Emissions by Sector')
+
+    # Update layout for titles and figure size
+    fig.update_layout(
+        xaxis_title='CO2 Emissions',
+        yaxis_title='Nitrous Oxide Emissions',
+        coloraxis_colorbar=dict(title="Sector"),
+        # Set fixed figure size: width x height in pixels
+        width=800,  # Adjust width as needed
+        height=600,  # Adjust height as needed
+        # Adjust margins to ensure titles fit
+        margin=dict(l=20, r=20, t=50, b=80)
+    )
+
+    st.plotly_chart(fig, use_container_width=False)  # Set use_container_width to False to use fixed size
